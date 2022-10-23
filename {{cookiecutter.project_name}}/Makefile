@@ -4,10 +4,10 @@ ALL_DOCKER = $(shell docker ps -q -a)
 .PHONY: build all clean run stop test
 
 build: test
-	docker build . -t signing-service
+	docker build . -t {{cookiecutter.project_name}}
 
 run: build
-	docker run -d -v ${PWD}/target:/data -p 3000:3000 signing-service > PID
+	docker run -d -v ${PWD}/target:/data -p 3000:3000 {{cookiecutter.project_name}} > PID
 
 stop:
 	docker stop `cat PID`
