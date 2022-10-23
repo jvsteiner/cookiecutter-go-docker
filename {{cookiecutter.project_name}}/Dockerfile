@@ -10,9 +10,7 @@ ENV GO111MODULE=on \
 WORKDIR /build
 
 # Copy and download dependency using go mod
-COPY ../go.mod .
-COPY ../Dockerfile ../go.sum* .
-# COPY ../go.mod ../go.sum* .  # why not?
+COPY ../go.mod ../go.sum* . 
 
 RUN go mod download
 
